@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const monaSans = localFont({
+  src: [
+    {
+      path: '../../public/fonts/MonaSans/Mona-Sans-Regular.ttf',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/MonaSans/Mona-Sans-Bold.ttf',
+      weight: '700',
+    },
+    
+  ],
+})
 
 export const metadata: Metadata = {
   title: "Tokena",
@@ -16,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={monaSans.className}>{children}</body>
     </html>
   );
 }
