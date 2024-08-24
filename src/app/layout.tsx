@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const monaSans = localFont({
   src: [
     {
-      path: '../../public/fonts/MonaSans/Mona-Sans-Regular.ttf',
-      weight: '400',
+      path: "../../public/fonts/MonaSans/Mona-Sans-Regular.ttf",
+      weight: "400",
     },
     {
-      path: '../../public/fonts/MonaSans/Mona-Sans-Bold.ttf',
-      weight: '700',
+      path: "../../public/fonts/MonaSans/Mona-Sans-Bold.ttf",
+      weight: "700",
     },
-    
   ],
-})
+});
 
 export const metadata: Metadata = {
   title: "Tokena",
@@ -28,7 +28,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={monaSans.className}>{children}</body>
+      <body className={monaSans.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
