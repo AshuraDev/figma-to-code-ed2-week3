@@ -2,24 +2,27 @@
 
 import React from "react";
 import { useTheme } from "next-themes";
-import { Button } from "./ui/button";
-import Image from "next/image";
+import { Moon, Sun } from "lucide-react";
 
 const DarkModeToggleButton = () => {
   const { theme, setTheme } = useTheme();
   return (
     <div>
       {theme === "light" && (
-        <Button variant="secondary" onClick={() => setTheme("dark")} className="rounded-">
-          test
-          <Image src={"./icons/sun.svg"} alt="sun" height={20} width={20} />
-        </Button>
+        <div
+          className="cursor-pointer font-medium border rounded-lg text-tokena_dark_gray text-sm flex items-center justify-center gap-1 p-3"
+          onClick={() => setTheme("dark")}
+        >
+          <Moon className="w-5 h-5 text-foreground" />
+        </div>
       )}
       {theme === "dark" && (
-        <Button onClick={() => setTheme("light")}>
-          test
-          <Image src={"./icons/moon.svg"} alt="sun" height={20} width={20} />
-        </Button>
+        <div
+          className="cursor-pointer font-medium border rounded-lg text-tokena_dark_gray text-sm flex items-center justify-center gap-1 p-3"
+          onClick={() => setTheme("light")}
+        >
+          <Sun className="w-5 h-5 text-foreground" />
+        </div>
       )}
     </div>
   );
