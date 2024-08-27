@@ -1,7 +1,9 @@
+import BalanceAndTending from "@/components/home/balance-and-trending";
+
 export default function Home() {
   return (
     <main className="">
-      <div className="">Hello world</div>
+      <BalanceAndTending />
     </main>
   );
 }
